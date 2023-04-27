@@ -38,7 +38,7 @@ public class FloorBinarySearchImpl implements Floor {
 	}
 	
 	private int partition(Integer[] array, int leftIndex, int rightIndex) {
-		int indexPivot = calcularPivotAleatorio(leftIndex, rightIndex);
+		int indexPivot = calcularMediana(array, leftIndex, rightIndex);
 		Util.swap(array, leftIndex, indexPivot);
 		
 		int pivot = array[leftIndex];
@@ -54,8 +54,20 @@ public class FloorBinarySearchImpl implements Floor {
 		return i;		
 	}
 	
-	private int calcularPivotAleatorio(int leftIndex, int rightIndex) {
-		int range = (rightIndex - leftIndex) + 1;
-		return (int) (Math.random() * range) + leftIndex;
+	private int calcularMediana(Integer[] array, int leftIndex, int rightIndex) {
+		int meio = (leftIndex + rightIndex) / 2;
+		
+		if(array[leftIndex].compareTo(array[rightIndex]) > 0) {
+			Util.swap(array, leftIndex, rightIndex);
+		}
+		
+		if(array[leftIndex].compareTo(array[meio]) > 0) {
+			Util.swap(array, leftIndex, meio);
+		}
+		
+		if(array[meio].compareTo(array[rightIndex]) > 0){
+			Util.swap(array, meio, rightIndex);
+		}
+		return meio;
 	}
 }
