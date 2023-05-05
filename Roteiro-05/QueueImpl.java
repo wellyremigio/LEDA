@@ -4,9 +4,7 @@ public class QueueImpl<T> implements Queue<T> {
 
 	private T[] array;
 	private int tail;
-
 	
-
 	@SuppressWarnings("unchecked")
 	public QueueImpl(int size) {
 		this.array = (T[]) new Object[size];
@@ -57,11 +55,5 @@ public class QueueImpl<T> implements Queue<T> {
 		shiftLeft();
 		this.tail--;
 		return element;
-	}
-	
-	
-	//Tirar depois
-	public T[] array() {
-		return this.array;
 	}
 }
