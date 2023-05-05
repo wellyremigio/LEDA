@@ -32,9 +32,9 @@ public class StudentQueueTest {
 
 	private void getImplementations() {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
-		queue1 = new CircularQueue<Integer>(4);
-		queue2 = new CircularQueue<Integer>(2);
-		queue3 = new CircularQueue<Integer>(2);
+		queue1 = new QueueImpl<Integer>(4);
+		queue2 = new QueueImpl<Integer>(2);
+		queue3 = new QueueImpl<Integer>(2);
 	}
 
 	// MÉTODOS DE TESTE
@@ -66,8 +66,9 @@ public class StudentQueueTest {
 
 	@Test(expected = QueueOverflowException.class)
 	public void testEnqueueComErro() throws QueueOverflowException {
-		queue1.enqueue(new Integer(5)); 
 		queue1.enqueue(new Integer(5));
+		queue1.enqueue(new Integer(3)); 
+										
 	}
 
 	@Test
@@ -85,6 +86,6 @@ public class StudentQueueTest {
 		assertEquals(new Integer(1), queue1.dequeue()); 
 		queue1.dequeue();
 		queue1.dequeue();
-		queue1.dequeue();								
+		queue1.dequeue();
 	}
 }
