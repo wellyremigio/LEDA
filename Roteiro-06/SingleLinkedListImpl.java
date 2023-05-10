@@ -76,6 +76,7 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 	}
 
 	@Override
+	//Lembra de fazer o tratamento se a lista tiver nula
 	public T[] toArray() {
 		int size = size();
 		T[] arrayDaLista = (T[]) new Comparable[size];
