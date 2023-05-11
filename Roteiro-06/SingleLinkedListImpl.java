@@ -76,18 +76,19 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 	}
 
 	@Override
-	//Lembra de fazer o tratamento se a lista tiver nula
 	public T[] toArray() {
-		int size = size();
-		T[] arrayDaLista = (T[]) new Comparable[size];
-		SingleLinkedListNode<T> auxHead = getHead();
-		int cont = 0;
-		while(!auxHead.isNIL()) {
-			arrayDaLista[cont] = auxHead.getData();
-			auxHead = auxHead.getNext();
-			cont++;
+		T[] arrayDaLista = (T[]) new Comparable[size()];
+		if(!this.isEmpty()) {
+			SingleLinkedListNode<T> auxHead = getHead();
+			int cont = 0;
+			while(!auxHead.isNIL()) {
+				arrayDaLista[cont] = auxHead.getData();
+				auxHead = auxHead.getNext();
+				cont++;
+			}
 		}
 		return arrayDaLista;
+		
 	}
 
 	public SingleLinkedListNode<T> getHead() {
