@@ -14,70 +14,73 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 		return this.getData() == null;
 	}
 
+	
 	@Override
 	public int size() {
-		int size = 0;
-		while(!this.isEmpty()) {
-			size = 1 + this.next.size();
+		if(this.isEmpty()) {
+			return 0;
 		}
-		return size;
+		return 1 + this.getNext().size();
 	}
+	
 
 	@Override
 	public T search(T element) {
 		T resposta = null;
 		if(element != null && !this.isEmpty()) {
 			if(this.getData().equals(element)) {
-				resposta = this.data;
+				resposta = this.getData();
 				
 			}else {
-				this.next.search(element);
+				resposta = this.getNext().search(element);
 			}
 		}
 		return resposta;
 	}
 
+	
 	@Override
 	public void insert(T element) {
 		if(element != null) {
 			if(this.isEmpty()) {
 				this.setData(element);
-				this.next = new RecursiveSingleLinkedListImpl<>();
+				this.setNext(new RecursiveSingleLinkedListImpl<>());
 				
 			}else {
-				this.next.insert(element);
+				this.getNext().insert(element);
 			}
 		}
 	}
 
+	
 	@Override
 	public void remove(T element) {
 		if(element != null && !this.isEmpty()) {
 			if(this.getData().equals(element)) {
-				this.setData(this.next.getData());
-				this.setNext(this.next.getNext());
+				this.setData(this.getNext().getData());
+				this.setNext(this.getNext().getNext());
 				
 			}else {
-				this.next.remove(element);
+				this.getNext().remove(element);
 			}
 		}
 	}
+	
 
 	@Override
 	public T[] toArray() {
-		T[] array = (T[]) new Comparable[size()];
-		toArrayAux(array, 0);
+		T[] array = (T[]) new Comparable[this.size()];
+		this.toArray(array, 0);
 		return array;
 	}
 	
-	private void toArrayAux(T[] array, int cont) {
+	private void toArray(T[] array, int cont) {
 		if(!this.isEmpty()) {
 			array[cont] = this.getData();
-			cont++;
-			toArrayAux(array, cont);
+			this.getNext().toArray(array, cont+1);
 		}
 	}
-
+	
 	public T getData() {
 		return data;
 	}
