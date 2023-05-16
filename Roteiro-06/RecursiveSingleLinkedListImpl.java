@@ -17,10 +17,11 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 	
 	@Override
 	public int size() {
-		if(this.isEmpty()) {
-			return 0;
+		int size = 0;
+		if(!this.isEmpty()) {
+			size = 1 + this.getNext().size();
 		}
-		return 1 + this.getNext().size();
+		return size;
 	}
 	
 
