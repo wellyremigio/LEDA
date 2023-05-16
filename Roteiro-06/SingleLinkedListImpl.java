@@ -40,12 +40,12 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 	@Override
 	public void insert(T element) {
 		if(element != null) {
-			SingleLinkedListNode<T> auxHead = getHead();
 			if(isEmpty()) {
 				SingleLinkedListNode<T> newHead = new SingleLinkedListNode<>(element, getHead());
-				setHead(newHead);
+				this.setHead(newHead);
 				
 			}else {
+				SingleLinkedListNode<T> auxHead = getHead();
 				while(!auxHead.isNIL()) {
 					auxHead = auxHead.getNext();
 				}
@@ -78,7 +78,7 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 	@Override
 	public T[] toArray() {
 		T[] arrayDaLista = (T[]) new Comparable[size()];
-		if(!this.isEmpty()) {
+		if(!isEmpty()) {
 			SingleLinkedListNode<T> auxHead = getHead();
 			int cont = 0;
 			while(!auxHead.isNIL()) {
