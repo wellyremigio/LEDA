@@ -98,4 +98,5 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 	public void setHead(SingleLinkedListNode<T> head) {
 		this.head = head;
 	}
+	
 }
