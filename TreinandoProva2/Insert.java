@@ -84,6 +84,7 @@ public class Insert<T extends Comparable<T>> {
 		return newHead;
 	}
 	
+	
 
 	//I think is ok
 	public boolean compare(SingleLinkedListNode<T> head1, SingleLinkedListNode<T> head2) {
@@ -100,7 +101,6 @@ public class Insert<T extends Comparable<T>> {
 		}
 		return false;
 	}
-	
 	
 	//Ok
 	//Remove passando um valor
@@ -155,30 +155,7 @@ public class Insert<T extends Comparable<T>> {
 		return head;
 	}
 	
-	
-	//Remove os valores numa lista desordenada
-	//NÃO ESTÁ CERTA
-	public SingleLinkedListNode<T> removerDuplicatasUnsorted(SingleLinkedListNode<T> head){
-		
-		SingleLinkedListNode<T> dup1 = head; //rastrear os elementos cujas duplicatas estão sendo checadas
-		SingleLinkedListNode<T> dup2 = null; //rastrear o no que estando sendo verificado
-		
-		while(dup1 != null && dup1.next != null) {
-			dup2 = dup1;
-			
-			while(dup2.next != null) {
-				
-				if(dup1.getData().equals(dup2.getNext().getData())) {
-					dup2.setNext(dup2.getNext().getNext());
-				}
-				dup2 = dup2.getNext();
-			}
-		}
-		dup1 = dup1.getNext();
-		return head;
-	}
-	
-	
+
 	//Quando manda valor maior que o tamanho da lista dá ruim;
 	public SingleLinkedListNode<T> getNodefromTail(SingleLinkedListNode<T> head, int k){
 		if(k >= 0) {
