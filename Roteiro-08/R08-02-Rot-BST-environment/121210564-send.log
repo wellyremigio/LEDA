@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-03T16:27:51.277-0300</date>
+  <logger>WELLY REMIGIO BEZERRA</logger>
+  <level>FINE</level>
+  <message>File 121210564-WELLY REMIGIO BEZERRA.zip was received. It was sent by WELLY REMIGIO BEZERRA from IP 192.168.0.4 at 03-06-2023 16*27*51</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-06-04T20:47:25.355-0300</date>
+  <logger>WELLY REMIGIO BEZERRA</logger>
+  <level>FINE</level>
+  <message>File 121210564-WELLY REMIGIO BEZERRA.zip was received. It was sent by WELLY REMIGIO BEZERRA from IP 192.168.0.4 at 04-06-2023 20*47*25</message>
+</record>
