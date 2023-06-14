@@ -11,14 +11,14 @@ public class SumRangeBST {
 	private int recursiveSum(BSTNode<Integer> node, int low, int high) {
 		int soma = 0;
 		if(node != null && !node.isEmpty()) {
+			if(node.getData() >= low && node.getData() <= high) {
+				soma += node.getData();
+			}
 			if(node.getData() > low) {
 				soma += recursiveSum(node.getLeft(), low, high);
 			}
 			if(node.getData() < high) {
 				soma += recursiveSum(node.getRight(), low, high);
-			}
-			if(node.getData() >= low && node.getData() <= high) {
-				soma += node.getData();
 			}
 		}
 		return soma;
