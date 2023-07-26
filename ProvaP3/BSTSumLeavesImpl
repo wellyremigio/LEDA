@@ -1,0 +1,23 @@
+package problems;
+
+import adt.bst.BST;
+import adt.bst.BSTNode;
+
+public class BSTSumLeavesImpl implements BSTSumLeaves{
+    public int sumLeaves(BST<Integer> bst){
+    	return recursiveSum((BSTNode<Integer>) bst.getRoot());
+    }
+    
+    private int recursiveSum(BSTNode<Integer> node) {
+    	int soma = 0;
+    	if(node != null && !node.isEmpty()) {
+    		if(node.isLeaf()) {
+    			soma += node.getData();
+    		}else {
+    			soma += recursiveSum((BSTNode<Integer>) node.getLeft());
+    			soma += recursiveSum((BSTNode<Integer>) node.getRight());
+    		}
+    	}
+    	return soma;
+    }
+}
